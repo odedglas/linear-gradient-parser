@@ -5,7 +5,7 @@
  */
 const getStopOffset = (offset) => {
     offset = offset.toString().trim();
-    console.log('Offset is : ', offset);
+
     if (offset.endsWith('%')) {
         return Number(offset.replace('%', ''));
     }
