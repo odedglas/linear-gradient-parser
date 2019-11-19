@@ -7,6 +7,8 @@ Converts a linear gradient SVG String / Json rep into CSS background property
 npm i linear-gradient-parser
 ```
 
+[Live Demo](https://stackblitz.com/edit/linear-gradient-parser?file=index.js)
+
 ## Usage
 Linear gradient parser comes in handy when you need get a svg linear gradient as background.
 It can accepts both SVG linearGradient string / Json as input in order to produce it's background.
