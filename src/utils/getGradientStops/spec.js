@@ -19,8 +19,9 @@ describe('utils / getGradientStops', () => {
             expect(stops.length).toEqual(simpleGradient.stops.length);
         });
 
-        it.each(simpleGradient.stops.map((stop, index) => ({ ...stop, index })))
-        ('Should return proper stop properties', (gradientStop) => {
+        it.each(
+            simpleGradient.stops.map((stop, index) => ({ ...stop, index }))
+        )('Should return proper stop properties', (gradientStop) => {
             const resultStop = stops[gradientStop.index];
 
             const { r, g, b, a } = hexToRgb(gradientStop.color, gradientStop.opacity);

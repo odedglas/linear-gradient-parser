@@ -22,7 +22,7 @@ const getStyles = (styleString) => {
 const getGradientStops = (lg) => Array.from(lg.querySelectorAll('stop'))
     .map((stop) => {
 
-    let offset = getStopOffset(stop.getAttribute(ATTRIBUTES.OFFSET));
+    const offset = getStopOffset(stop.getAttribute(ATTRIBUTES.OFFSET));
 
     let color;
     let opacity;

@@ -10,7 +10,7 @@ describe('utils / hexToRgb', () => {
             'string'
         ])('Should return an undefined for (%p)', (input) => {
             expect(hexToRgb(input)).toBeUndefined();
-        })
+        });
     });
 
     describe('When no opacity given', () => {

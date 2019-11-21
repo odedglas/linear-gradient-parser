@@ -13,5 +13,5 @@ describe('utils / defined', () => {
    it.each([
        null,
        undefined
-   ])('Returns false when value (%p) is un defined', (value) => expect(defined(value)).toBeFalsy())
+   ])('Returns false when value (%p) is un defined', (value) => expect(defined(value)).toBeFalsy());
 });

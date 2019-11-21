@@ -15,11 +15,6 @@ describe('utils / parseLinearGradient', () => {
         y2="${positionProps.y2}">
                 <stop offset="1" style='stop-color: #ffffff'> </stop> 
             </linearGradient>`;
-    let gradient;
-
-    beforeEach(() => {
-        gradient = parseLinearGradient(gradientString);
-    });
 
     describe('When unvalid', () => {
 
@@ -37,7 +32,7 @@ describe('utils / parseLinearGradient', () => {
        });
 
        it.each(Object.keys(positionProps))('Should return poroper position attribute (%p)', (attr) => {
-           expect(gradient[attr]).toEqual(positionProps[attr])
+           expect(gradient[attr]).toEqual(positionProps[attr]);
        });
     });
 });

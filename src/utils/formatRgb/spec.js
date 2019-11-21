@@ -10,7 +10,7 @@ describe('utils / formatRgb', () => {
     describe('When no opacity is given', () => {
         it('Returns an rgb string', () => {
             expect(formatRgb(rgb)).toEqual('rgb(255, 125, 25)');
-        })
+        });
     });
     describe('When opacity is given', () => {
         it('Returns rbg string when opacity is 1', () => {
