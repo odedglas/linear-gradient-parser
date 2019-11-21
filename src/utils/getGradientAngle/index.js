@@ -3,8 +3,8 @@
  * @param {String} pos - the position value
  * @returns {Number}
  */
-const formatPosition = (pos) => pos.trim().endsWith('%') ?
-    Number(pos.trim().replace('%', '')) : pos;
+const formatPosition = (pos) => Number(pos.trim().endsWith('%') ?
+    pos.trim().replace('%', '') : pos);
 
 /**
  * Returns a gradient angle by a given position properties
@@ -16,17 +16,23 @@ const formatPosition = (pos) => pos.trim().endsWith('%') ?
  */
 const getGradientAngle = ({ x1, x2, y1, y2 }) => {
 
-    const x = formatPosition(x2) - formatPosition(x1);
-    const y = formatPosition(y2) - formatPosition(y1);
+    [x1, x2, y1, y2] = [x1, x2, y1, y2].map(formatPosition);
 
-    // Use 90deg for gradients only in the x-direction
+    const x = x2 - x1;
+    const y = y2 - y1;
+
+    // Single axis
     if (y === 0) {
-        return 90;
+        return x1 > x2 ? 270 : 90;
+    }
+
+    if (x === 0) {
+        return y1 > y2 ? 360 : 0;
     }
 
     // Converts angle in degrees
     const angleRad = Math.atan(y/x);
-    return angleRad * 180 / Math.PI;
+    return (angleRad * 180 / Math.PI) + 90;
 };
 
 export default getGradientAngle;
