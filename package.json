@@ -1,6 +1,6 @@
 {
   "name": "linear-gradient-parser",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Parses a SVG linear gradient string / parsed JSON into css background image property",
   "author": "Oded Goldglas <odedglas@gmail.com>",
   "license": "ISC",

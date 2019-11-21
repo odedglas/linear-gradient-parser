@@ -29,7 +29,7 @@ describe('utils / getGradientStops', () => {
                 `rgb(${r}, ${g}, ${b})`;
 
             expect(resultStop.color).toEqual(expectedColor);
-            expect(resultStop.offset).toEqual(gradientStop.offset);
+            expect(resultStop.offset).toEqual(gradientStop.offset * 100);
         });
     });
 
