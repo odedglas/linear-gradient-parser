@@ -27,7 +27,7 @@ const getGradientAngle = ({ x1, x2, y1, y2 }) => {
     }
 
     if (x === 0) {
-        return y1 > y2 ? 360 : 0;
+        return y1 > y2 ? 180 : 0;
     }
 
     // Converts angle in degrees
