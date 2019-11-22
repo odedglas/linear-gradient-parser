@@ -55,3 +55,10 @@ console.log(jsonResult)
 | `linearGradient` | `String|LinearGradient` | `undefined` | Yes | The linear gradient to parse
 
 Returns: { angle: Number , background: String } 
+
+#### getGradientCords
+| Name | Type | Default Value | Required? | Description
+|-|-|-|-|-
+| `angle` | `Number` | `0` | Yes | The angle to create the x1 / x2 / y1 / y2 cords from.
+
+Returns: { x1: Number, x2: Number, y1: Number, y2: Number } 

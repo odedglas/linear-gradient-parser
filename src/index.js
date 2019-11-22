@@ -55,7 +55,7 @@ export default {
         return { angle, background };
     },
 
-    getLinearGradientCords(angle) {
+    getGradientCords(angle) {
         const { startPoint, endPoint } = getAngleCords(angle);
 
         return {

@@ -60,13 +60,13 @@ describe('utils / getGradientAngle', () => {
             })).toEqual(90);
         });
 
-        it('Returns 180 when x1 greater than x2', () => {
+        it('Returns 270 when x1 greater than x2', () => {
             expect(getGradientAngle({
                 x1: '231',
                 x2: '33',
                 y1: '0',
                 y2: '0',
-            })).toEqual(180);
+            })).toEqual(270);
         });
     });
 });

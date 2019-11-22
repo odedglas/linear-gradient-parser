@@ -10,7 +10,7 @@ import {
  * @param {Number} value
  * @returns {Number}
  */
-const formatPoint = (value) => value <= 0 || Math.abs(value) <= EPSILON ? 0 : value;
+const formatPoint = (value) => (value <= 0 || (Math.abs(value) <= EPSILON)) ? 0 : value;
 
 /**
  * Calculates a angle point by sin / cos
@@ -34,7 +34,7 @@ const degreesToRadians = (degrees) => ((degrees * Math.PI) / 180);
  * @param {Number} angle
  * @returns {{startPoint: {x: Number, y: Number}, endPoint: {x: Number, y: Number}}}
  */
-const getAngleCords = (angle) => {
+const getAngleCords = (angle = 0) => {
     const adjustedAngle = ((CIRCLE_DEGREES - angle) % CIRCLE_DEGREES);
 
     const startPoint = anglePoint(degreesToRadians(START_POINT_RATIO - adjustedAngle));

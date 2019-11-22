@@ -14,7 +14,7 @@ export const START_POINT_RATIO = CIRCLE_DEGREES / 4;
  * The gradient angle end point ratio
  * @type {Number}
  */
-export const END_POINT_RATIO = CIRCLE_DEGREES / 3;
+export const END_POINT_RATIO = CIRCLE_DEGREES * (3 / 4);
 
 /**
  * The epsilon representation
