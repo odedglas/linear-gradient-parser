@@ -31,7 +31,7 @@ const getGradientAngle = ({ x1, x2, y1, y2 }) => {
     }
 
     // Converts angle in degrees
-    const angleRad = Math.atan(y/x);
+    const angleRad = Math.atan2(y, x);
     return (angleRad * 180 / Math.PI) + 90;
 };
 
