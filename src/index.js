@@ -3,9 +3,9 @@ import {
     getGradientAngle,
     hexToRgb,
     formatRgb,
-    getStopOffset
+    getStopOffset,
+    getAngleCords
 } from './utils';
-
 
 /**
  * Formats into linear gradient background property
@@ -53,5 +53,16 @@ export default {
         const background = asBackground({ angle, stops });
 
         return { angle, background };
+    },
+
+    getLinearGradientCords(angle) {
+        const { startPoint, endPoint } = getAngleCords(angle);
+
+        return {
+            x1: startPoint.x,
+            y1: startPoint.y,
+            x2: endPoint.x,
+            y2: endPoint.y
+        };
     }
 };
