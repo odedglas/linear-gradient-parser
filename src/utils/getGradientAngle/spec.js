@@ -30,22 +30,22 @@ describe('utils / getGradientAngle', () => {
 
     describe('When X Delta is 0', () => {
 
-        it('Returns 0 when y2 greater than y1', () => {
+        it('Returns 180 when y2 greater than y1', () => {
             expect(getGradientAngle({
                 x1: '0',
                 x2: '0',
                 y1: '-5',
                 y2: '10',
-            })).toEqual(0);
+            })).toEqual(180);
         });
 
-        it('Returns 360 when y1 greater than y2', () => {
+        it('Returns 0 when y1 greater than y2', () => {
             expect(getGradientAngle({
                 x1: '0',
                 x2: '0',
                 y1: '5',
                 y2: '-10',
-            })).toEqual(360);
+            })).toEqual(0);
         });
     });
 
