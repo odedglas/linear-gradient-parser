@@ -3,7 +3,7 @@
  * @param {String} pos - the position value
  * @returns {Number}
  */
-const formatPosition = (pos) => Number(pos.trim().endsWith('%') ?
+const formatPosition = (pos) => Number(`${pos}`.trim().endsWith('%') ?
     pos.trim().replace('%', '') : pos);
 
 /**
