@@ -1,3 +1,5 @@
+import clampAngle from '../calmpAngle';
+
 /**
  * Formats a given position attribute
  * @param {String} pos - the position value
@@ -32,7 +34,7 @@ const getGradientAngle = ({ x1, x2, y1, y2 }) => {
 
     // Converts angle in degrees
     const angleRad = Math.atan2(y, x);
-    return (angleRad * 180 / Math.PI) + 90;
+    return clampAngle((angleRad * 180 / Math.PI) + 90);
 };
 
 export default getGradientAngle;

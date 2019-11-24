@@ -27,7 +27,7 @@ const linearGradientString = `
 const stringResult = parser.getBackground(linearGradientString);
 
 console.log(stringResult) 
-//outputs : {angle: 360, background: "linear-gradient(360deg, rgb(252, 179, 164) 0%, rgb(218, 88, 153) 100%)"}
+//outputs : {background: "linear-gradient(0deg, rgb(252, 179, 164) 0%, rgb(218, 88, 153) 100%)", angle: 0}
 
 // JSON input
 const linearGradient = {
@@ -44,7 +44,7 @@ const linearGradient = {
 const jsonResult = parser.getBackground(linearGradient);
 
 console.log(jsonResult) 
-//outputs : {angle: 360, background: "linear-gradient(360deg, rgb(252, 179, 164) 0%, rgb(218, 88, 153) 100%)"}
+//outputs : {background: "linear-gradient(0deg, rgb(252, 179, 164) 0%, rgb(218, 88, 153) 100%)", angle: 0}
 ```
 
 ### Methods
