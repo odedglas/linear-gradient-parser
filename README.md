@@ -45,6 +45,11 @@ const jsonResult = parser.getBackground(linearGradient);
 
 console.log(jsonResult) 
 //outputs : {background: "linear-gradient(0deg, rgb(252, 179, 164) 0%, rgb(218, 88, 153) 100%)", angle: 0}
+
+// Using angle generator
+const gradientCords = parser.getGradientCords(90);
+
+//outputs : { x1: 0, x2: 1, y1: 0, y2: 0 }
 ```
 
 ### Methods
@@ -54,11 +59,15 @@ console.log(jsonResult)
 |-|-|-|-|-
 | `linearGradient` | `String|LinearGradient` | `undefined` | Yes | The linear gradient to parse
 
+Converts a linear gradient into a background representation. <br/>
+
 Returns: { angle: Number , background: String } 
 
 #### getGradientCords
 | Name | Type | Default Value | Required? | Description
 |-|-|-|-|-
 | `angle` | `Number` | `0` | Yes | The angle to create the x1 / x2 / y1 / y2 cords from.
+
+Builds a linear gradient position attributes for a given angle. <br/>
 
 Returns: { x1: Number, x2: Number, y1: Number, y2: Number } 
