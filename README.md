@@ -55,19 +55,21 @@ const gradientCords = parser.getGradientCords(90);
 ### Methods
 
 #### getBackground
+
+Converts a linear gradient into a background representation.
+
 | Name | Type | Default Value | Required? | Description
 |-|-|-|-|-
 | `linearGradient` | `String|LinearGradient` | `undefined` | Yes | The linear gradient to parse
 
-Converts a linear gradient into a background representation. <br/>
-
 Returns: { angle: Number , background: String } 
 
 #### getGradientCords
+
+Builds a linear gradient position attributes for a given angle.
+
 | Name | Type | Default Value | Required? | Description
 |-|-|-|-|-
 | `angle` | `Number` | `0` | Yes | The angle to create the x1 / x2 / y1 / y2 cords from.
-
-Builds a linear gradient position attributes for a given angle. <br/>
 
 Returns: { x1: Number, x2: Number, y1: Number, y2: Number } 
