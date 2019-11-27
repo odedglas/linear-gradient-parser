@@ -1,4 +1,4 @@
-import { rgbStrToRgb } from './index';
+import { rgbStrToRgb, rgbaStrToRgb } from './index';
 
 describe('utils / rgbStrToRgb', () => {
 
@@ -32,6 +32,16 @@ describe('utils / rgbStrToRgb', () => {
             'rgb(255, 255)',
         ])('Run rgb without opacity', (input) => {
             expect(rgbStrToRgb(input)).toBeUndefined();
+        });
+    });
+
+
+    describe('Run rgba with opacity', () => {
+        expect(rgbaStrToRgb('rgba(255,255,215, 0.5)')).toEqual({
+            r: 255,
+            g: 255,
+            b: 215,
+            a: 0.5
         });
     });
 });

@@ -16,7 +16,6 @@ describe('Linear Gradient Transformer', () => {
         });
 
         describe('When input is json', () => {
-
             it('Gets css from linear gradient string', () => {
                 const result = parser.getBackground(simpleGradient);
 
@@ -30,6 +29,14 @@ describe('Linear Gradient Transformer', () => {
                 const result = parser.getBackground(simpleGradientRgb);
                 expect(result.angle).toEqual(simpleGradientRgb.angle);
                 expect(result.background).toEqual(simpleGradientRgb.background);
+            });
+        });
+
+        describe('When input is json', () => {
+            it('Gets css from linear gradient and RGBA color', () => {
+                const result = parser.getBackground(simpleGradientRgba);
+                expect(result.angle).toEqual(simpleGradientRgba.angle);
+                expect(result.background).toEqual(simpleGradientRgba.background);
             });
         });
     });
