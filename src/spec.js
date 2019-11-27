@@ -1,4 +1,4 @@
-import { simpleGradient } from './test/stub';
+import { simpleGradient, simpleGradientRgba, simpleGradientRgb } from './test/stub';
 import parser from '.';
 
 describe('Linear Gradient Transformer', () => {
@@ -22,6 +22,14 @@ describe('Linear Gradient Transformer', () => {
 
                 expect(result.angle).toEqual(simpleGradient.angle);
                 expect(result.background).toEqual(simpleGradient.background);
+            });
+        });
+
+        describe('When input is json', () => {
+            it('Gets css from linear gradient and RGB color', () => {
+                const result = parser.getBackground(simpleGradientRgb);
+                expect(result.angle).toEqual(simpleGradientRgb.angle);
+                expect(result.background).toEqual(simpleGradientRgb.background);
             });
         });
     });

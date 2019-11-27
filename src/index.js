@@ -6,6 +6,7 @@ import {
     getStopOffset,
     getAngleCords
 } from './utils';
+import { rgbRex, rgbStrToRgb } from './utils/rgbStrToRgb';
 
 /**
  * Formats into linear gradient background property
@@ -23,10 +24,19 @@ const parserHandlers = {
     string: parseLinearGradient,
     object: (gradient) => ({
         ...gradient,
-        stops: gradient.stops.map(({ offset, color, opacity }) => ({
-            offset: getStopOffset(offset),
-            color: formatRgb(hexToRgb(color, opacity))
-        }))
+        stops: gradient.stops.map(({ offset, color, opacity }) => {
+            const hexMatcher = /#[\da-f]{6}/i;
+            let rgb;
+            if (hexMatcher.test(color)) {
+                rgb = hexToRgb(color, opacity);
+            } else if (rgbRex.test(color)) {
+                rgb = rgbStrToRgb(color, opacity);
+            }
+            return {
+                offset: getStopOffset(offset),
+                color: formatRgb(rgb)
+            };
+        })
     })
 };
 
