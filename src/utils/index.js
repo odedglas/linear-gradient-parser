@@ -1,5 +1,6 @@
-export { default as hexToRgb } from './hexToRgb';
-export { default as formatRgb } from './formatRgb';
+export { default as hexToRgb } from './colors/hexToRgb';
+export { default as formatRgb } from './colors/formatRgb';
+export { default as getStopColor } from './colors/getStopColor';
 export { default as defined } from './defined';
 export { default as getGradientAngle } from './getGradientAngle';
 export { default as getGradientStops } from './getGradientStops';

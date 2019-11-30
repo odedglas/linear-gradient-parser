@@ -1,4 +1,4 @@
-import formatRgb from '.';
+import formatRgb from './index';
 
 describe('utils / formatRgb', () => {
     const rgb = {

@@ -1,8 +1,7 @@
 import {
     parseLinearGradient,
     getGradientAngle,
-    hexToRgb,
-    formatRgb,
+    getStopColor,
     getStopOffset,
     getAngleCords
 } from './utils';
@@ -25,7 +24,7 @@ const parserHandlers = {
         ...gradient,
         stops: gradient.stops.map(({ offset, color, opacity }) => ({
             offset: getStopOffset(offset),
-            color: formatRgb(hexToRgb(color, opacity))
+            color: getStopColor(color, opacity)
         }))
     })
 };

@@ -1,4 +1,4 @@
-import { hexToRgb, getStopOffset } from '..';
+import { getStopOffset, getStopColor } from '..';
 import { ATTRIBUTES } from '../../constnats';
 
 /**
@@ -15,6 +15,27 @@ const getStyles = (styleString) => {
 };
 
 /**
+ * Returns a given stop html element it's color
+ * @param {HTMLElement} stop
+ * @returns {String} rgb / rgba formatted color
+ */
+const getColor = (stop) => {
+    const attributeColor = stop.getAttribute(ATTRIBUTES.STOP_COLOR);
+    if (attributeColor) {
+        const opacity = stop.getAttribute(ATTRIBUTES.STOP_OPACITY);
+
+        return getStopColor(attributeColor, opacity);
+    }
+
+    const {
+        [ATTRIBUTES.STOP_COLOR]: styleColor,
+        [ATTRIBUTES.STOP_OPACITY]: styleOpacity
+    } = getStyles(stop.getAttribute(ATTRIBUTES.STYLE));
+
+    return styleColor ? getStopColor(styleColor, styleOpacity) : undefined;
+};
+
+/**
  * Parses a Linear gradient HTML element into Stop
  * @param {HTMLElement} lg - The linear gradient
  * @returns {Stop[]}
@@ -23,30 +44,7 @@ const getGradientStops = (lg) => Array.from(lg.querySelectorAll('stop'))
     .map((stop) => {
 
     const offset = getStopOffset(stop.getAttribute(ATTRIBUTES.OFFSET));
-
-    let color;
-    let opacity;
-
-    // Try to find the color using `stop-color` and `stop-opacity`
-    if (stop.hasAttribute(ATTRIBUTES.STOP_COLOR)) {
-        color = stop.getAttribute(ATTRIBUTES.STOP_COLOR);
-        opacity = stop.getAttribute(ATTRIBUTES.STOP_OPACITY);
-
-        if (opacity) {
-            const rgb = hexToRgb(color);
-
-            if (rgb) {
-                const { r, g, b } = rgb;
-                color = `rgba(${r}, ${g}, ${b}, ${opacity})`;
-            }
-        }
-    }
-
-    // Try to find the color using `style`
-    if (!color && stop.hasAttribute(ATTRIBUTES.STYLE)) {
-        const styles = getStyles(stop.getAttribute(ATTRIBUTES.STYLE));
-        color = styles[ATTRIBUTES.STOP_COLOR];
-    }
+    const color = getColor(stop);
 
     return { offset: Number(offset), color };
 });
