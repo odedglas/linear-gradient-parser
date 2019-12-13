@@ -14,6 +14,12 @@ describe('utils / getStopColor', () => {
         });
     });
 
+    describe('When color is short hex', () => {
+        it('returns rgb formatted color', () => {
+            expect(getStopColor('#fff')).toEqual('rgb(255, 255, 255)');
+        });
+    });
+
     describe('When stop color is in rgb', () => {
         it('returns rgb formatted color', () => {
             expect(getStopColor('rgb(252, 195, 164)')).toEqual('rgb(252, 195, 164)');

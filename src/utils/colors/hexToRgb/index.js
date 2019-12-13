@@ -1,4 +1,10 @@
 export const hexRegExp = new RegExp(/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i);
+export const sortHexRegExp = new RegExp(/^#?([a-f\d])([a-f\d])([a-f\d])$/i);
+
+const formatHexNumber = (item) => parseInt(
+    item.repeat(3 - item.length),
+    16
+);
 
 /**
  * Converts a hex color string into rgb
@@ -7,12 +13,12 @@ export const hexRegExp = new RegExp(/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i)
  * @returns {Object}
  */
 const hexToRgb = (hex, opacity = 1) => {
-    const result = hexRegExp.exec(hex);
+    const result = hexRegExp.exec(hex) || sortHexRegExp.exec(hex);
 
     return result ? {
-        r: parseInt(result[1], 16),
-        g: parseInt(result[2], 16),
-        b: parseInt(result[3], 16),
+        r: formatHexNumber(result[1]),
+        g: formatHexNumber(result[2]),
+        b: formatHexNumber(result[3]),
         a: opacity
     } : undefined;
 };
