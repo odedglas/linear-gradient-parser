@@ -15,6 +15,15 @@ const simpleGradient = {
         </linearGradient>`,
 };
 
+const simpleGradientOneStop = {
+    stops: [
+        { color: '#FCC3A4', offset: '0', opacity: 0.5 },
+    ],
+    angle: 0,
+    background: 'rgba(252, 195, 164, 0.5)'
+};
+
 export {
-    simpleGradient
+    simpleGradient,
+    simpleGradientOneStop
 };

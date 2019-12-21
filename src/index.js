@@ -12,7 +12,7 @@ import {
  * @param {Stop[]} stops - The linear gradient stops
  * @returns {String}
  */
-const asBackground = ({ angle, stops }) => `linear-gradient(${angle}deg, ${
+const asBackground = ({ angle, stops }) => stops.length === 1 ? stops[0].color : `linear-gradient(${angle}deg, ${
     stops
     .map(stop => `${stop.color} ${stop.offset}%`)
     .join(', ')

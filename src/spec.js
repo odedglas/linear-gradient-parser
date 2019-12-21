@@ -1,4 +1,4 @@
-import { simpleGradient } from './test/stub';
+import { simpleGradient, simpleGradientOneStop } from './test/stub';
 import parser from '.';
 
 describe('Linear Gradient Transformer', () => {
@@ -22,6 +22,14 @@ describe('Linear Gradient Transformer', () => {
 
                 expect(result.angle).toEqual(simpleGradient.angle);
                 expect(result.background).toEqual(simpleGradient.background);
+            });
+        });
+
+        describe('When input is json with only one stop', () => {
+            it('Gets css from linear gradient string', () => {
+                const result = parser.getBackground(simpleGradientOneStop);
+
+                expect(result.background).toEqual(simpleGradientOneStop.background);
             });
         });
     });
