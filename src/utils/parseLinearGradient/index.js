@@ -1,7 +1,7 @@
 import { defined, getGradientStops } from '..';
 import { POSITION_ATTRIBUTES } from '../../constnats';
 
-const parser = new DOMParser();
+let parser;
 
 /**
  * Returns linear gradient position effecting properties
@@ -18,6 +18,7 @@ const positionAttributes = (lg) => POSITION_ATTRIBUTES.reduce(
  * @returns {LinearGradient}
  */
 const parseLinearGradient = (linearGradientString) => {
+    parser = parser || new DOMParser();
     const doc = parser.parseFromString(linearGradientString, 'image/svg+xml');
     const lg = doc.querySelector('linearGradient');
 
